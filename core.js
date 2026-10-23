@@ -151,8 +151,22 @@ async function shareInvitation() {
     else showToast("Copia el enlace del navegador para compartir esta invitación.");
   }catch(error){if(error.name!=="AbortError")showToast("Copia el enlace del navegador para compartir la invitación.");}
 }
+const SPLIT_SELECTOR="main h2, main section > p:not(.estado):not(.nota), main .kicker, main .frase, main .texto-grande, main .sitio, main .llegada, .cover p:not(.nota), .ticket-numero, .ticket-mes, .ticket-hora, .memory-label";
+function splitWords() {
+  document.querySelectorAll(SPLIT_SELECTOR).forEach(element=>{
+    if(element.children.length)return;
+    const words=element.textContent.trim().split(/\s+/).filter(Boolean);
+    element.textContent="";
+    words.forEach((word,index)=>{
+      const span=document.createElement("span");
+      span.className="palabra";span.style.setProperty("--i",index);span.textContent=word;
+      element.append(span,index<words.length-1?" ":"");
+    });
+  });
+}
 function observeReveal() {
   if(reduceMotion||!("IntersectionObserver" in window))return;
+  splitWords();
   const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
     if(entry.isIntersecting){entry.target.classList.add("entered");observer.unobserve(entry.target);}
   }),{threshold:.08,rootMargin:"0px 0px -24px 0px"});

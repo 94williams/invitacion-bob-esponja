@@ -367,38 +367,31 @@ main h2 { font-size: clamp(2rem, 6vw, 3rem); color: var(--oceano); text-shadow: 
 .world-motion [data-world-reveal] { opacity: 0; transform: scale(.94); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1); }
 .world-motion [data-world-reveal].world-visible { opacity: 1; transform: none; }
 
-/* Textos con entrada propia dentro de cada sección */
-.js-motion [data-enter].entered h2 { animation: titulo-cine .95s cubic-bezier(.2,.8,.2,1) .15s both; }
-.js-motion [data-enter].entered > p { animation: texto-subir .8s cubic-bezier(.2,.8,.2,1) .35s both; }
-.js-motion [data-enter].entered .kicker { animation: texto-subir .8s cubic-bezier(.2,.8,.2,1) .2s both; }
-.js-motion [data-enter].entered .texto-grande { animation: texto-desenfocar 1s ease .4s both; }
-.js-motion [data-enter].entered .sitio { animation: texto-deslizar .8s cubic-bezier(.2,.8,.2,1) .35s both; }
-.js-motion [data-enter].entered .ticket-numero { animation: texto-pop 1s cubic-bezier(.2,.8,.2,1) .3s both; }
-.js-motion [data-enter].entered .ticket-mes { animation: texto-deslizar .7s cubic-bezier(.2,.8,.2,1) .5s both; }
-.js-motion [data-enter].entered .ticket-hora { animation: texto-pop .8s cubic-bezier(.2,.8,.2,1) .7s both; }
+/* Textos con entrada cinematográfica palabra por palabra (core.js divide cada texto en .palabra) */
+.js-motion [data-enter] h2, .js-motion [data-enter] p, .js-motion .frase, .js-motion .memory-label { perspective: 700px; }
+.js-motion [data-enter].entered .palabra { animation: palabra-entrar .9s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--i) * 70ms + var(--base, 0s)); }
+.js-motion [data-enter].entered h2 { --base: .1s; }
+.js-motion [data-enter].entered .kicker, .js-motion [data-enter].entered .sitio, .js-motion [data-enter].entered .llegada { --base: .2s; }
+.js-motion [data-enter].entered .texto-grande, .js-motion .frase.entered { --base: .35s; }
+.js-motion [data-enter].entered .ticket-numero .palabra { animation-name: palabra-pop; animation-duration: 1s; }
+.js-motion [data-enter].entered .ticket-mes .palabra, .js-motion [data-enter].entered .ticket-hora .palabra { --base: .5s; }
+.js-motion [data-enter].entered .memory-label .palabra { animation-duration: .7s; }
+.js-motion .frase.entered .palabra { animation-duration: 1s; }
 .js-motion [data-enter].entered .ticket > p:not(.ticket-numero):not(.ticket-mes):not(.ticket-hora) { animation: texto-subir .7s ease .6s both; }
-.js-motion .frase.entered { animation: texto-desenfocar 1.1s ease .2s both; }
+.js-motion [data-enter].entered .cover p .palabra { animation-duration: 1s; }
 
-@keyframes titulo-cine {
-  from { clip-path: inset(0 100% 0 0); letter-spacing: .14em; opacity: 0; transform: translateX(-18px); }
-  to { clip-path: inset(0 0 0 0); letter-spacing: normal; opacity: 1; transform: none; }
+@keyframes palabra-entrar {
+  from { opacity: 0; transform: translateY(.7em) rotateX(-75deg) scale(.9); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+@keyframes palabra-pop {
+  0% { opacity: 0; transform: scale(.3) rotate(-8deg); }
+  65% { opacity: 1; transform: scale(1.12) rotate(2deg); }
+  100% { opacity: 1; transform: none; }
 }
 @keyframes texto-subir {
   from { opacity: 0; transform: translateY(18px); }
   to { opacity: 1; transform: none; }
-}
-@keyframes texto-desenfocar {
-  from { opacity: 0; filter: blur(8px); transform: scale(.98); }
-  to { opacity: 1; filter: none; transform: none; }
-}
-@keyframes texto-deslizar {
-  from { opacity: 0; transform: translateX(-28px); }
-  to { opacity: 1; transform: none; }
-}
-@keyframes texto-pop {
-  0% { opacity: 0; transform: scale(.4) rotate(-6deg); }
-  70% { opacity: 1; transform: scale(1.12) rotate(2deg); }
-  100% { opacity: 1; transform: none; }
 }
 
 @media (max-width: 720px) {
