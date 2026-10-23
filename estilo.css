@@ -114,6 +114,37 @@ a { color: inherit; }
   75% { transform: translateX(-85vw) translateY(12px); }
   to { transform: translateX(-120vw); }
 }
+.pez.lento { animation-timing-function: ease-in-out; }
+.pez.arco { animation-name: nadar-arco; }
+.pez.arco.vuelta { animation-name: nadar-arco-vuelta; }
+.pez.diagonal { animation-name: nadar-diagonal; }
+.pez.diagonal.vuelta { animation-name: nadar-diagonal-vuelta; }
+@keyframes nadar-arco {
+  from { transform: translateX(-20vw) scaleX(-1); }
+  20% { transform: translateX(10vw) translateY(-60px) rotate(-18deg) scaleX(-1); }
+  35% { transform: translateX(30vw) translateY(18px) rotate(14deg) scaleX(-1); }
+  55% { transform: translateX(60vw) translateY(-60px) rotate(-18deg) scaleX(-1); }
+  70% { transform: translateX(80vw) translateY(18px) rotate(14deg) scaleX(-1); }
+  to { transform: translateX(120vw) scaleX(-1); }
+}
+@keyframes nadar-arco-vuelta {
+  from { transform: translateX(20vw); }
+  20% { transform: translateX(-10vw) translateY(-60px) rotate(18deg); }
+  35% { transform: translateX(-30vw) translateY(18px) rotate(-14deg); }
+  55% { transform: translateX(-60vw) translateY(-60px) rotate(18deg); }
+  70% { transform: translateX(-80vw) translateY(18px) rotate(-14deg); }
+  to { transform: translateX(-120vw); }
+}
+@keyframes nadar-diagonal {
+  from { transform: translateX(-20vw) translateY(90px) scaleX(-1); }
+  50% { transform: translateX(50vw) translateY(-30px) rotate(-10deg) scaleX(-1); }
+  to { transform: translateX(120vw) translateY(-110px) scaleX(-1); }
+}
+@keyframes nadar-diagonal-vuelta {
+  from { transform: translateX(20vw) translateY(-90px); }
+  50% { transform: translateX(-50vw) translateY(30px) rotate(10deg); }
+  to { transform: translateX(-120vw) translateY(110px); }
+}
 
 /* Adornos marinos en la esquina de cada sección */
 main > section { position: relative; }
@@ -135,7 +166,6 @@ main > section:nth-of-type(even)::after { right: auto; left: 22px; animation-del
 .burbujas { --deco: "🐡"; }
 .regalos { --deco: "🎁"; }
 .rsvp { --deco: "🐠"; }
-.idea { --deco: "🌊"; }
 
 /* Portada */
 .cover {
@@ -392,14 +422,27 @@ main h2 { font-size: clamp(2rem, 6vw, 3rem); color: var(--oceano); text-shadow: 
 .algas { display: flex; justify-content: center; gap: 14px; margin-top: 22px; font-size: 2.2rem; line-height: 1; }
 .algas span { display: inline-block; transform-origin: 50% 100%; animation: alga 3.2s ease-in-out infinite; animation-delay: calc(var(--i) * -.45s); }
 @keyframes alga { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(7deg); } }
-.arena { height: 30px; margin: 0 -16px; background: #f2d28b; border-top: 5px solid var(--marino); }
+.arena { position: relative; height: 30px; margin: 0 -16px; background: #f2d28b; border-top: 5px solid var(--marino); }
+.cangrejo {
+  position: absolute; bottom: 14px; left: 0; font-size: 1.9rem; line-height: 1;
+  animation: caminar var(--t) linear var(--d) infinite;
+}
+.cangrejo.vuelta { left: auto; right: 0; animation-name: caminar-vuelta; }
+@keyframes caminar {
+  from { transform: translateX(-12vw); }
+  to { transform: translateX(112vw); }
+}
+@keyframes caminar-vuelta { from { transform: translateX(12vw); } to { transform: translateX(-112vw); } }
 
 /* Contacto */
-.idea { background: var(--marino); color: var(--blanco); }
+.idea {
+  max-width: 880px; margin: 0 auto 40px; padding: 32px 24px; background: var(--marino); color: var(--blanco);
+  border: 5px solid var(--amarillo); border-radius: 48px 56px 44px 60px / 56px 44px 60px 48px;
+  box-shadow: 0 8px 0 rgba(10,42,74,.45);
+}
 .idea h2 { color: var(--amarillo); text-shadow: 0 4px 0 var(--oceano); }
-.idea .btn { margin: 8px 0 14px; }
-.idea-tel { margin: 0; font-weight: 800; }
-.idea-tel a { color: var(--amarillo); font-weight: 900; }
+.idea p { margin: 0 0 1em; text-shadow: none; }
+.idea .btn { margin-top: 4px; }
 
 /* Diálogos */
 .dialogo {

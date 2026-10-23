@@ -188,7 +188,7 @@ async function shareInvitation() {
     else showToast("Copia el enlace del navegador para compartir esta invitación.");
   }catch(error){if(error.name!=="AbortError")showToast("Copia el enlace del navegador para compartir la invitación.");}
 }
-const SPLIT_SELECTOR="main h2, main section > p:not(.estado):not(.nota), main .kicker, main .frase, main .texto-grande, main .sitio, main .llegada, main .firma, main .carta-saludo, .cover p:not(.nota), .ticket-numero, .ticket-mes, .ticket-hora, .memory-label";
+const SPLIT_SELECTOR="main h2, main section > p:not(.estado):not(.nota), main .kicker, main .frase, main .texto-grande, main .sitio, main .llegada, main .firma, main .carta-saludo, .idea h2, .idea > p, .cover p:not(.nota), .ticket-numero, .ticket-mes, .ticket-hora, .memory-label";
 function splitWords() {
   document.querySelectorAll(SPLIT_SELECTOR).forEach(element=>{
     if(element.children.length)return;
