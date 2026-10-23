@@ -8,5 +8,7 @@ Personajes y referencias del tema: https://m.media-amazon.com/images/S/pv-target
 
 Fuentes: Luckiest Guy (titulares) y Nunito (texto), servidas desde Google Fonts bajo la licencia SIL Open Font License 1.1.
 
+Criaturas y adornos marinos (assets/mar/*.svg): Twemoji, © Twitter, Inc. y colaboradores (proyecto jdecked/twemoji), gráficos bajo licencia CC-BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Se incluyen sin modificaciones.
+
 
 Edición visual 3: assets/celebration-v3.webp, assets/scene-v3.webp y assets/details-v3.webp son recursos originales creados con ImageGen integrado. Los prompts completos están en RECURSOS-VISUALES.md de esta carpeta y en RECURSOS-VISUALES-V3.md del catálogo.

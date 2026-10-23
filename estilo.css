@@ -96,7 +96,7 @@ a { color: inherit; }
 /* Peces que cruzan la invitación */
 .peces { position: absolute; inset: 0; z-index: 4; overflow: hidden; pointer-events: none; }
 .pez {
-  position: absolute; top: var(--y); left: 0; font-size: var(--z, 2rem); line-height: 1;
+  position: absolute; top: var(--y); left: 0; width: calc(var(--z, 2rem) * 1.15); height: auto;
   filter: drop-shadow(0 3px 0 rgba(10,42,74,.35)); animation: nadar var(--t) linear var(--d) infinite;
 }
 .pez.vuelta { left: auto; right: 0; animation-name: nadar-vuelta; }
@@ -149,23 +149,23 @@ a { color: inherit; }
 /* Adornos marinos en la esquina de cada sección */
 main > section { position: relative; }
 main > section::after {
-  content: var(--deco, "🐚"); position: absolute; top: -26px; right: 22px; z-index: 2; font-size: 2.3rem; line-height: 1;
+  content: ""; position: absolute; top: -28px; right: 22px; z-index: 2; width: 2.6rem; height: 2.6rem;
+  background: var(--deco, url(assets/mar/1f41a.svg)) center / contain no-repeat;
   filter: drop-shadow(0 3px 0 var(--marino)); pointer-events: none; animation: mecer 4.5s ease-in-out infinite;
 }
 main > section:nth-of-type(even)::after { right: auto; left: 22px; animation-delay: -2s; }
-@supports (content: "a" / "") { main > section::after { content: var(--deco, "🐚") / ""; } }
 @keyframes mecer { 0%, 100% { transform: translateY(0) rotate(-6deg); } 50% { transform: translateY(-8px) rotate(6deg); } }
-.mundo { --deco: "🐙"; }
-.mensaje { --deco: "⭐"; }
-.carta { --deco: "💌"; }
-.recuerdos { --deco: "🐚"; }
-.fecha { --deco: "⚓"; }
-.programa { --deco: "🐙"; }
-.lugar { --deco: "🧭"; }
-.traer { --deco: "🦀"; }
-.burbujas { --deco: "🐡"; }
-.regalos { --deco: "🎁"; }
-.rsvp { --deco: "🐠"; }
+.mundo { --deco: url(assets/mar/1f419.svg); }
+.mensaje { --deco: url(assets/mar/2b50.svg); }
+.carta { --deco: url(assets/mar/1f48c.svg); }
+.recuerdos { --deco: url(assets/mar/1f41a.svg); }
+.fecha { --deco: url(assets/mar/2693.svg); }
+.programa { --deco: url(assets/mar/1f419.svg); }
+.lugar { --deco: url(assets/mar/1f9ed.svg); }
+.traer { --deco: url(assets/mar/1f980.svg); }
+.burbujas { --deco: url(assets/mar/1f421.svg); }
+.regalos { --deco: url(assets/mar/1f381.svg); }
+.rsvp { --deco: url(assets/mar/1f420.svg); }
 
 /* Portada */
 .cover {
@@ -419,12 +419,12 @@ main h2 { font-size: clamp(2rem, 6vw, 3rem); color: var(--oceano); text-shadow: 
 }
 @keyframes ola { to { -webkit-mask-position: 120px 0; mask-position: 120px 0; } }
 .pie p { margin: 0; text-shadow: 0 2px 0 var(--marino); }
-.algas { display: flex; justify-content: center; gap: 14px; margin-top: 22px; font-size: 2.2rem; line-height: 1; }
-.algas span { display: inline-block; transform-origin: 50% 100%; animation: alga 3.2s ease-in-out infinite; animation-delay: calc(var(--i) * -.45s); }
+.algas { display: flex; justify-content: center; align-items: flex-end; gap: 14px; margin-top: 22px; }
+.algas img { width: 2.4rem; height: 2.4rem; transform-origin: 50% 100%; animation: alga 3.2s ease-in-out infinite; animation-delay: calc(var(--i) * -.45s); }
 @keyframes alga { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(7deg); } }
 .arena { position: relative; height: 30px; margin: 0 -16px; background: #f2d28b; border-top: 5px solid var(--marino); }
 .cangrejo {
-  position: absolute; bottom: 14px; left: 0; font-size: 1.9rem; line-height: 1;
+  position: absolute; bottom: 14px; left: 0; width: 2.2rem; height: auto;
   animation: caminar var(--t) linear var(--d) infinite;
 }
 .cangrejo.vuelta { left: auto; right: 0; animation-name: caminar-vuelta; }
