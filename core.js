@@ -85,17 +85,23 @@ function el(tag,className,text) {
   if(text!==undefined)node.textContent=text;
   return node;
 }
+function iconNode(className,icon) {
+  const node=el("span",className);
+  if(/\.(svg|png|webp)$/i.test(String(icon))){const img=el("img");img.src=icon;img.alt="";node.append(img);}
+  else node.textContent=icon;
+  return node;
+}
 function renderLists() {
   const lists={
     programa:item=>{
       const li=el("li","paso");
-      li.append(el("span","paso-hora",item.hora),el("span","paso-icono",item.icono));
+      li.append(el("span","paso-hora",item.hora),iconNode("paso-icono",item.icono));
       const body=el("div","paso-cuerpo");body.append(el("strong",null,item.titulo),el("span",null,item.detalle));
       li.append(body);return li;
     },
     traer:item=>{
       const li=el("li","tarjeta");
-      li.append(el("span","tarjeta-icono",item.icono),el("strong",null,item.titulo),el("span",null,item.detalle));return li;
+      li.append(iconNode("tarjeta-icono",item.icono),el("strong",null,item.titulo),el("span",null,item.detalle));return li;
     }
   };
   lists.regalos=item=>{

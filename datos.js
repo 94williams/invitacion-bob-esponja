@@ -53,22 +53,22 @@ window.INVITATION = {
   },
   "confirmarAntes": "2027-03-14T23:59:00-06:00",
   "programa": [
-    { "hora": "01:00 p. m.", "icono": "🐚", "titulo": "Llegada de la tripulación", "detalle": "Recibimos a todos con sombreros de papel y pintura de caritas." },
-    { "hora": "01:30 p. m.", "icono": "🏝️", "titulo": "Juegos en la arena", "detalle": "Búsqueda del tesoro y pesca de medusas." },
-    { "hora": "02:30 p. m.", "icono": "🍔", "titulo": "Comida del fondo del mar", "detalle": "Hamburguesas de cangrejo, fruta y agua de sabores." },
-    { "hora": "03:15 p. m.", "icono": "🎂", "titulo": "Pastel y piñata", "detalle": "Cantamos, pedimos un deseo y rompemos la piñata." },
-    { "hora": "04:00 p. m.", "icono": "🎁", "titulo": "Premios y despedida", "detalle": "Cada invitado se lleva una sorpresa del cofre." }
+    { "hora": "01:00 p. m.", "icono": "assets/mar/1f41a.svg", "titulo": "Llegada de la tripulación", "detalle": "Recibimos a todos con sombreros de papel y pintura de caritas." },
+    { "hora": "01:30 p. m.", "icono": "assets/mar/1f3dd.svg", "titulo": "Juegos en la arena", "detalle": "Búsqueda del tesoro y pesca de medusas." },
+    { "hora": "02:30 p. m.", "icono": "assets/mar/1f354.svg", "titulo": "Comida del fondo del mar", "detalle": "Hamburguesas de cangrejo, fruta y agua de sabores." },
+    { "hora": "03:15 p. m.", "icono": "assets/mar/1f382.svg", "titulo": "Pastel y piñata", "detalle": "Cantamos, pedimos un deseo y rompemos la piñata." },
+    { "hora": "04:00 p. m.", "icono": "assets/mar/1f381.svg", "titulo": "Premios y despedida", "detalle": "Cada invitado se lleva una sorpresa del cofre." }
   ],
   "traer": [
-    { "icono": "👕", "titulo": "Colores del mar", "detalle": "Amarillo, azul o turquesa. Los disfraces son bienvenidos." },
-    { "icono": "👟", "titulo": "Calzado cómodo", "detalle": "Tenis para correr y jugar sin parar." },
-    { "icono": "🧦", "titulo": "Muda de ropa", "detalle": "Por si hay juegos con agua o pastel." },
-    { "icono": "😄", "titulo": "Muchas ganas", "detalle": "Lo más importante para pasarla increíble." }
+    { "icono": "assets/mar/1f455.svg", "titulo": "Colores del mar", "detalle": "Amarillo, azul o turquesa. Los disfraces son bienvenidos." },
+    { "icono": "assets/mar/1f45f.svg", "titulo": "Calzado cómodo", "detalle": "Tenis para correr y jugar sin parar." },
+    { "icono": "assets/mar/1f9e6.svg", "titulo": "Muda de ropa", "detalle": "Por si hay juegos con agua o pastel." },
+    { "icono": "assets/mar/1f604.svg", "titulo": "Muchas ganas", "detalle": "Lo más importante para pasarla increíble." }
   ],
   "regalos": [
-    { "icono": "📚", "titulo": "Cuentos y libros", "detalle": "Historias del fondo del mar para leer antes de dormir.", "url": "" },
-    { "icono": "🧩", "titulo": "Juegos y rompecabezas", "detalle": "Para armar, construir y aprender jugando.", "url": "" },
-    { "icono": "💌", "titulo": "Sobre sorpresa", "detalle": "Una opción sencilla para el cofre de ahorros.", "url": "" }
+    { "icono": "assets/mar/1f4da.svg", "titulo": "Cuentos y libros", "detalle": "Historias del fondo del mar para leer antes de dormir.", "url": "" },
+    { "icono": "assets/mar/1f9e9.svg", "titulo": "Juegos y rompecabezas", "detalle": "Para armar, construir y aprender jugando.", "url": "" },
+    { "icono": "assets/mar/1f48c.svg", "titulo": "Sobre sorpresa", "detalle": "Una opción sencilla para el cofre de ahorros.", "url": "" }
   ],
   "fotos": [
     {
