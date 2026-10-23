@@ -10,6 +10,8 @@ portada.imagenes contiene la imagen principal del tema (tres imágenes en Plaza 
 
 Para cambiar las fotos, añade tus archivos a assets/ y modifica fotos[].src. posicion permite ajustar el encuadre, por ejemplo «50% 30%».
 
+Secciones editables en datos.js: `programa[]` (hora, icono, titulo, detalle), `traer[]` (qué llevar o vestimenta), `regalos[]` (si `url` tiene un enlace, la tarjeta se vuelve clicable), `confirmarAntes` (fecha límite del contador para confirmar; déjalo vacío para ocultarlo) y los textos `carta*` de la carta del festejado.
+
 Los valores actuales son ficticios: Lucas, 4 años. Los teléfonos están vacíos y modoDemo es true. La confirmación abre una vista de ejemplo sin enviar mensajes. Para usar WhatsApp, configura los números y cambia modoDemo a false. No hay conexión a un registro de invitados externo.
 
 Las imágenes de los personajes que se sirven desde fuentes externas necesitan Internet. Las tres imágenes temáticas sí se incluyen localmente y las fuentes se cargan desde Google Fonts. Consulta CREDITOS.md.

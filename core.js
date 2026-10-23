@@ -84,7 +84,49 @@ function applyInvitationData() {
     note.textContent=mapUrl?"Se abre la ubicación en Google Maps.":"Ubicación de ejemplo. El mapa estará disponible al personalizar.";
   });
 }
-applyInvitationData();
+function el(tag,className,text) {
+  const node=document.createElement(tag);
+  if(className)node.className=className;
+  if(text!==undefined)node.textContent=text;
+  return node;
+}
+function renderLists() {
+  const lists={
+    programa:item=>{
+      const li=el("li","paso");
+      li.append(el("span","paso-hora",item.hora),el("span","paso-icono",item.icono));
+      const body=el("div","paso-cuerpo");body.append(el("strong",null,item.titulo),el("span",null,item.detalle));
+      li.append(body);return li;
+    },
+    traer:item=>{
+      const li=el("li","tarjeta");
+      li.append(el("span","tarjeta-icono",item.icono),el("strong",null,item.titulo),el("span",null,item.detalle));return li;
+    }
+  };
+  lists.regalos=item=>{
+    const li=lists.traer(item),url=String(item.url||"").trim();
+    if(!url)return li;
+    const link=el("a","tarjeta-enlace");link.href=url;link.target="_blank";link.rel="noopener noreferrer";
+    link.append(...li.childNodes);li.append(link);return li;
+  };
+  document.querySelectorAll("[data-list]").forEach(list=>{
+    const build=lists[list.dataset.list],items=CONFIG[list.dataset.list];
+    if(!build||!Array.isArray(items))return;
+    list.replaceChildren(...items.map((item,index)=>{const node=build(item);node.style.setProperty("--n",index);return node;}));
+  });
+}
+function renderDeadline() {
+  const box=$("rsvpDeadline"),limit=CONFIG.confirmarAntes?new Date(CONFIG.confirmarAntes):null;
+  if(!limit||Number.isNaN(limit.getTime())){box.hidden=true;return;}
+  const days=Math.ceil((limit.getTime()-Date.now())/86400000);
+  const date=new Intl.DateTimeFormat("es-MX",{timeZone:CONFIG.zonaHoraria||"America/Mexico_City",day:"numeric",month:"long"}).format(limit);
+  box.hidden=false;box.classList.toggle("cerrado",days<=0);
+  $("deadlineDays").textContent=days>0?String(days):"0";
+  $("deadlineText").textContent=days>0
+    ?(days===1?"día":"días")+" para confirmar antes del "+date
+    :"El plazo para confirmar cerró el "+date+". Escríbenos si aún quieres asistir.";
+}
+applyInvitationData();renderLists();renderDeadline();
 
 function showToast(message) {
   $("toast").textContent=message;$("toast").classList.add("show");clearTimeout(showToast.timer);
@@ -151,7 +193,7 @@ async function shareInvitation() {
     else showToast("Copia el enlace del navegador para compartir esta invitación.");
   }catch(error){if(error.name!=="AbortError")showToast("Copia el enlace del navegador para compartir la invitación.");}
 }
-const SPLIT_SELECTOR="main h2, main section > p:not(.estado):not(.nota), main .kicker, main .frase, main .texto-grande, main .sitio, main .llegada, .cover p:not(.nota), .ticket-numero, .ticket-mes, .ticket-hora, .memory-label";
+const SPLIT_SELECTOR="main h2, main section > p:not(.estado):not(.nota), main .kicker, main .frase, main .texto-grande, main .sitio, main .llegada, main .firma, main .carta-saludo, .cover p:not(.nota), .ticket-numero, .ticket-mes, .ticket-hora, .memory-label";
 function splitWords() {
   document.querySelectorAll(SPLIT_SELECTOR).forEach(element=>{
     if(element.children.length)return;

@@ -361,6 +361,69 @@ main h2 { font-size: clamp(2rem, 6vw, 3rem); color: var(--oceano); text-shadow: 
 }
 .toast.show { transform: translate(-50%, 0); }
 
+/* Carta */
+.carta { background: #fff3a6; }
+.carta h2 { color: var(--marino); text-shadow: 0 4px 0 var(--blanco); }
+.papel {
+  position: relative; max-width: 560px; margin: 26px auto 8px; padding: 34px 26px 26px;
+  background: var(--crema); border: 4px solid var(--marino); border-radius: 18px;
+  box-shadow: 0 8px 0 var(--marino); transform: rotate(-1.2deg);
+}
+.papel::before {
+  content: ""; position: absolute; top: -18px; left: 50%; width: 110px; height: 30px; margin-left: -55px;
+  background: var(--rosa); border: 3px solid var(--marino); border-radius: 6px; transform: rotate(3deg);
+}
+.papel p { margin: 0 0 12px; }
+.carta-saludo { font-family: var(--display); font-size: 1.7rem; color: var(--coral); }
+.papel .texto-grande { color: var(--marino); font-size: 1.15rem; }
+.firma { font-family: var(--display); font-size: 1.6rem; color: var(--oceano); margin: 16px 0 0 !important; }
+
+/* Programa */
+.programa { background: var(--oceano); color: var(--blanco); }
+.programa h2 { color: var(--blanco); text-shadow: 0 4px 0 var(--marino); }
+.linea-tiempo { position: relative; list-style: none; max-width: 580px; margin: 26px auto 0; padding: 0; display: grid; gap: 18px; text-align: left; }
+.linea-tiempo::before {
+  content: ""; position: absolute; top: 10px; bottom: 10px; left: 121px; width: 5px; border-radius: 4px;
+  background: var(--amarillo); transform-origin: top;
+}
+.paso { position: relative; display: grid; grid-template-columns: 84px 52px 1fr; column-gap: 12px; align-items: center; }
+.paso-hora { font-weight: 900; font-size: .9rem; color: var(--amarillo); text-align: right; line-height: 1.2; }
+.paso-icono {
+  display: grid; place-items: center; width: 52px; height: 52px; font-size: 1.6rem; z-index: 1;
+  background: var(--blanco); border: 4px solid var(--marino); border-radius: 50% 46% 54% 50%; box-shadow: 0 4px 0 var(--marino);
+}
+.paso-cuerpo { display: grid; gap: 2px; }
+.paso-cuerpo strong { font-family: var(--display); font-weight: 400; font-size: 1.2rem; letter-spacing: .02em; }
+.paso-cuerpo span { font-size: .95rem; font-weight: 700; color: var(--espuma); }
+
+/* Tarjetas: qué traer y regalos */
+.traer { background: var(--naranja); }
+.regalos { background: var(--rosa); color: var(--blanco); }
+.traer h2, .regalos h2 { color: var(--blanco); text-shadow: 0 4px 0 var(--marino); }
+.traer p { color: var(--marino); font-weight: 800; }
+.tarjetas { list-style: none; margin: 26px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 18px; }
+.tarjeta, .tarjeta-enlace { display: grid; gap: 6px; align-content: start; justify-items: center; }
+.tarjeta { padding: 20px 16px; background: var(--blanco); color: var(--marino); border: 4px solid var(--marino); border-radius: 36px 44px 40px 48px / 44px 38px 48px 40px; box-shadow: 0 6px 0 var(--marino); }
+.tarjeta:nth-child(even) { border-radius: 48px 36px 44px 40px / 38px 46px 40px 44px; }
+.tarjeta-enlace { color: inherit; text-decoration: none; }
+.tarjeta:has(.tarjeta-enlace) { transition: transform .25s ease; }
+.tarjeta:has(.tarjeta-enlace):hover { transform: translateY(-4px) rotate(-1.5deg); }
+.tarjeta-icono { font-size: 2.6rem; line-height: 1; }
+.tarjeta strong { font-family: var(--display); font-weight: 400; font-size: 1.3rem; color: var(--oceano); }
+.tarjeta span:last-child { font-weight: 700; font-size: .95rem; }
+
+/* Plazo para confirmar */
+.plazo {
+  display: flex; align-items: center; justify-content: center; gap: 14px; max-width: 480px; margin: 18px auto 4px;
+  padding: 12px 22px; background: var(--amarillo); color: var(--marino); border: 4px solid var(--marino);
+  border-radius: 32px; box-shadow: 0 5px 0 var(--marino);
+}
+.plazo[hidden] { display: none; }
+.plazo-num { font-family: var(--display); font-size: 2.8rem; line-height: 1; color: var(--coral); text-shadow: 0 3px 0 var(--blanco); }
+.plazo-texto { font-weight: 900; text-align: left; }
+.plazo.cerrado { background: var(--espuma); }
+.plazo.cerrado .plazo-num { display: none; }
+
 /* Movimiento de entrada */
 .js-motion [data-enter] { opacity: 0; transform: translateY(30px) scale(.97); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1); }
 .js-motion [data-enter].entered { opacity: 1; transform: none; }
@@ -394,12 +457,38 @@ main h2 { font-size: clamp(2rem, 6vw, 3rem); color: var(--oceano); text-shadow: 
   to { opacity: 1; transform: none; }
 }
 
+/* Entrada de las secciones nuevas */
+.js-motion [data-enter].entered .papel { animation: papel-entrar 1.1s cubic-bezier(.2,.8,.2,1) .3s both; }
+.js-motion [data-enter].entered .linea-tiempo::before { animation: linea-crecer 1.4s ease .35s both; }
+.js-motion [data-enter].entered .paso { animation: paso-entrar .8s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--n) * 160ms + .5s); }
+.js-motion [data-enter].entered .tarjeta { animation: tarjeta-entrar .8s cubic-bezier(.2,1.2,.4,1) both; animation-delay: calc(var(--n) * 140ms + .5s); }
+.js-motion [data-enter].entered .plazo { animation: palabra-pop .9s cubic-bezier(.2,.8,.2,1) .6s both; }
+
+@keyframes papel-entrar {
+  from { opacity: 0; transform: translateY(50px) rotate(-7deg) scale(.88); }
+  to { opacity: 1; transform: rotate(-1.2deg); }
+}
+@keyframes linea-crecer { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes paso-entrar {
+  from { opacity: 0; transform: translateX(-34px); filter: blur(4px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+@keyframes tarjeta-entrar {
+  from { opacity: 0; transform: translateY(34px) scale(.8) rotate(-4deg); }
+  to { opacity: 1; transform: none; }
+}
+
 @media (max-width: 720px) {
   .galeria { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; }
   .countdown { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .topbar { border-radius: 28px; }
   .cover::after { height: 80px; }
   main > section, main > .frase { padding: 28px 18px; }
+  .paso { grid-template-columns: 66px 48px 1fr; column-gap: 10px; }
+  .paso-icono { width: 48px; height: 48px; }
+  .linea-tiempo::before { left: 98px; }
+  .plazo { flex-direction: column; gap: 4px; text-align: center; }
+  .plazo-texto { text-align: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {

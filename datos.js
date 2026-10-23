@@ -39,8 +39,37 @@ window.INVITATION = {
     "fechaTitulo": "El menú de la diversión",
     "ubicacionTitulo": "Las coordenadas del tesoro",
     "rsvpTitulo": "¡Sube a bordo de la fiesta!",
-    "rsvpMensaje": "Tenemos diversión para toda la tripulación. Confirma cuántos vienen a esta aventura submarina."
+    "rsvpMensaje": "Tenemos diversión para toda la tripulación. Confirma cuántos vienen a esta aventura submarina.",
+    "cartaTitulo": "Una carta de {nombre}",
+    "cartaSaludo": "¡Hola, amigo del mar!",
+    "cartaTexto": "Voy a cumplir {edadPalabra} años y quiero celebrarlo contigo. Habrá pastel, juegos y muchas burbujas. ¡Ven a divertirte conmigo!",
+    "cartaFirma": "Con cariño, {nombre}",
+    "programaTitulo": "El plan de la tripulación",
+    "programaMensaje": "Así será nuestra aventura, hora por hora.",
+    "traerTitulo": "Equipo de aventura",
+    "traerMensaje": "Esto te ayudará a navegar con nosotros.",
+    "regalosTitulo": "El cofre del tesoro",
+    "regalosMensaje": "Tu compañía es el mejor regalo. Si deseas tener un detalle, estas ideas ayudan mucho."
   },
+  "confirmarAntes": "2027-03-14T23:59:00-06:00",
+  "programa": [
+    { "hora": "01:00 p. m.", "icono": "🐚", "titulo": "Llegada de la tripulación", "detalle": "Recibimos a todos con sombreros de papel y pintura de caritas." },
+    { "hora": "01:30 p. m.", "icono": "🏝️", "titulo": "Juegos en la arena", "detalle": "Búsqueda del tesoro y pesca de medusas." },
+    { "hora": "02:30 p. m.", "icono": "🍔", "titulo": "Comida del fondo del mar", "detalle": "Hamburguesas de cangrejo, fruta y agua de sabores." },
+    { "hora": "03:15 p. m.", "icono": "🎂", "titulo": "Pastel y piñata", "detalle": "Cantamos, pedimos un deseo y rompemos la piñata." },
+    { "hora": "04:00 p. m.", "icono": "🎁", "titulo": "Premios y despedida", "detalle": "Cada invitado se lleva una sorpresa del cofre." }
+  ],
+  "traer": [
+    { "icono": "👕", "titulo": "Colores del mar", "detalle": "Amarillo, azul o turquesa. Los disfraces son bienvenidos." },
+    { "icono": "👟", "titulo": "Calzado cómodo", "detalle": "Tenis para correr y jugar sin parar." },
+    { "icono": "🧦", "titulo": "Muda de ropa", "detalle": "Por si hay juegos con agua o pastel." },
+    { "icono": "😄", "titulo": "Muchas ganas", "detalle": "Lo más importante para pasarla increíble." }
+  ],
+  "regalos": [
+    { "icono": "📚", "titulo": "Cuentos y libros", "detalle": "Historias del fondo del mar para leer antes de dormir.", "url": "" },
+    { "icono": "🧩", "titulo": "Juegos y rompecabezas", "detalle": "Para armar, construir y aprender jugando.", "url": "" },
+    { "icono": "💌", "titulo": "Sobre sorpresa", "detalle": "Una opción sencilla para el cofre de ahorros.", "url": "" }
+  ],
   "fotos": [
     {
       "src": "assets/celebration-v3.webp",

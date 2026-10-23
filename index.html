@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@400;600;800;900&display=swap">
-  <link rel="stylesheet" href="estilo.css?v=palabras-1">
+  <link rel="stylesheet" href="estilo.css?v=secciones-1">
 </head>
 <body>
   <a class="skip-link" href="#mainContent">Saltar al contenido</a>
@@ -20,6 +20,7 @@
     <a class="brand" href="#inicio" data-brand><span>Cumpleaños</span></a>
     <nav class="topnav" aria-label="Secciones">
       <a href="#fecha">Fecha</a>
+      <a href="#programa">Programa</a>
       <a href="#lugar">Lugar</a>
       <a href="#rsvp">Confirmar</a>
     </nav>
@@ -85,6 +86,15 @@
       <p class="texto-grande" data-bind="mensaje"></p>
     </section>
 
+    <section class="carta" data-enter>
+      <h2 data-bind="cartaTitulo"></h2>
+      <article class="papel">
+        <p class="carta-saludo" data-bind="cartaSaludo"></p>
+        <p class="texto-grande" data-bind="cartaTexto"></p>
+        <p class="firma" data-bind="cartaFirma"></p>
+      </article>
+    </section>
+
     <section class="recuerdos" data-enter>
       <h2 data-bind="galeriaTitulo"></h2>
       <div class="galeria">
@@ -116,12 +126,24 @@
       <p class="llegada" data-arrival></p>
     </section>
 
+    <section class="programa" id="programa" data-enter>
+      <h2 data-bind="programaTitulo"></h2>
+      <p data-bind="programaMensaje"></p>
+      <ol class="linea-tiempo" data-list="programa"></ol>
+    </section>
+
     <section class="lugar" id="lugar" data-enter>
       <h2 data-bind="ubicacionTitulo"></h2>
       <p class="sitio" data-bind="lugarNombre"></p>
       <p data-bind="direccion"></p>
       <a class="btn btn-secundario" id="mapsBtn" href="#lugar">Ver en Google Maps</a>
       <p class="nota" data-map-note></p>
+    </section>
+
+    <section class="traer" data-enter>
+      <h2 data-bind="traerTitulo"></h2>
+      <p data-bind="traerMensaje"></p>
+      <ul class="tarjetas" data-list="traer"></ul>
     </section>
 
     <section class="burbujas" data-enter>
@@ -144,11 +166,21 @@
       <p class="estado" id="bubbleStatus" aria-live="polite"></p>
     </section>
 
+    <section class="regalos" data-enter>
+      <h2 data-bind="regalosTitulo"></h2>
+      <p data-bind="regalosMensaje"></p>
+      <ul class="tarjetas" data-list="regalos"></ul>
+    </section>
+
     <p class="frase" data-enter data-bind="fraseFinal"></p>
 
     <section class="rsvp" id="rsvp" data-enter>
       <h2 data-bind="rsvpTitulo"></h2>
       <p data-bind="rsvpMensaje"></p>
+      <div class="plazo" id="rsvpDeadline" hidden>
+        <span class="plazo-num" id="deadlineDays">0</span>
+        <span class="plazo-texto" id="deadlineText"></span>
+      </div>
       <form id="rsvpForm" class="formulario" novalidate>
         <label class="campo">
           <span>Tu nombre</span>
@@ -193,8 +225,8 @@
     <button class="btn btn-primario" id="demoClose" type="button">Cerrar</button>
   </dialog>
 
-  <script src="datos.js"></script>
-  <script src="core.js?v=palabras-1"></script>
+  <script src="datos.js?v=secciones-1"></script>
+    <script src="core.js?v=secciones-1"></script>
   <script src="interaction.js"></script>
   <script src="world.js"></script>
 </body>
