@@ -41,11 +41,7 @@ function applyInvitationData() {
   document.querySelectorAll("[data-bind]").forEach(element=>{
     const value=values[element.dataset.bind];if(value!==undefined)element.textContent=value;
   });
-  document.querySelectorAll("[data-brand]").forEach(brand=>{
-    const first=CONFIG.nombre.trim().split(/\s+/)[0]+" ";
-    if(brand.firstChild?.nodeType===3)brand.firstChild.nodeValue=first;
-    else brand.prepend(document.createTextNode(first));
-  });
+  document.querySelectorAll("[data-brand-name]").forEach(name=>{name.textContent=CONFIG.nombre.trim().split(/\s+/)[0];});
   document.querySelectorAll("[data-event-date]").forEach(element=>element.setAttribute("datetime",CONFIG.fechaEvento));
   document.querySelectorAll("[data-arrival]").forEach(element=>{element.textContent="Nos vemos a las "+values.horaCompleta+" para empezar a celebrar.";});
   document.querySelectorAll("[data-template-notice]").forEach(element=>{element.hidden=!CONFIG.modoDemo;});
