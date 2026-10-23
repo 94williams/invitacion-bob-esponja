@@ -10,18 +10,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@400;600;800;900&display=swap">
-  <link rel="stylesheet" href="estilo.css?v=barra-2">
+  <link rel="stylesheet" href="estilo.css?v=mar-4">
 </head>
 <body>
   <a class="skip-link" href="#mainContent">Saltar al contenido</a>
   <div class="progress" aria-hidden="true"><div id="progressBar"></div></div>
 
-  <header class="topbar">
-    <a class="brand" href="#inicio">
-      <span class="brand-foto" aria-hidden="true"><img data-hero-index="0" alt=""></span>
-      <span><span data-brand-name></span> Cumpleaños</span>
-    </a>
-  </header>
+  <div class="mar-global" aria-hidden="true">
+    <div class="rayos"></div>
+    <i style="left:4%;--s:14px;--d:0s;--t:16s"></i>
+    <i style="left:14%;--s:26px;--d:5s;--t:20s"></i>
+    <i style="left:27%;--s:10px;--d:2s;--t:14s"></i>
+    <i style="left:41%;--s:20px;--d:8s;--t:18s"></i>
+    <i style="left:55%;--s:32px;--d:3s;--t:22s"></i>
+    <i style="left:66%;--s:12px;--d:10s;--t:15s"></i>
+    <i style="left:78%;--s:22px;--d:6s;--t:19s"></i>
+    <i style="left:90%;--s:16px;--d:1s;--t:17s"></i>
+  </div>
 
   <section class="cover" id="inicio" data-enter>
     <div class="fondo-burbujas" aria-hidden="true">
@@ -199,10 +204,33 @@
       <p class="estado" id="rsvpStatus" aria-live="polite"></p>
       <button class="btn btn-secundario" id="shareBtn" type="button">Compartir invitación</button>
     </section>
+
+    <section class="idea" data-enter>
+      <h2>¿Te gustaría una invitación así?</h2>
+      <p>Envíame tu idea y creamos juntos una invitación digital para tu próxima celebración.</p>
+      <a class="btn btn-primario" href="https://wa.me/message/P7RPHXQSCT34P1" target="_blank" rel="noopener noreferrer">Enviar mi idea por WhatsApp</a>
+      <p class="idea-tel">O escríbeme al <a href="tel:+525537978056">55 3797 8056</a></p>
+    </section>
+
+    <div class="peces" aria-hidden="true">
+      <span class="pez" style="--y:6%;--t:30s;--d:0s;--z:2.2rem">🐠</span>
+      <span class="pez vuelta" style="--y:17%;--t:36s;--d:-12s;--z:1.8rem">🐟</span>
+      <span class="pez" style="--y:29%;--t:28s;--d:-6s;--z:2.6rem">🐡</span>
+      <span class="pez vuelta" style="--y:41%;--t:40s;--d:-20s;--z:2rem">🐠</span>
+      <span class="pez" style="--y:53%;--t:34s;--d:-14s;--z:1.8rem">🐟</span>
+      <span class="pez vuelta" style="--y:65%;--t:32s;--d:-4s;--z:2.4rem">🐡</span>
+      <span class="pez" style="--y:77%;--t:38s;--d:-26s;--z:2rem">🐠</span>
+      <span class="pez vuelta" style="--y:89%;--t:30s;--d:-9s;--z:2.2rem">🐟</span>
+    </div>
   </main>
 
   <footer class="pie">
     <p>Invitación temática · Bob Esponja</p>
+    <div class="algas" aria-hidden="true">
+      <span style="--i:0">🌿</span><span style="--i:1">🐚</span><span style="--i:2">🌿</span><span style="--i:3">🦀</span>
+      <span style="--i:4">🌿</span><span style="--i:5">⭐</span><span style="--i:6">🌿</span>
+    </div>
+    <div class="arena" aria-hidden="true"></div>
   </footer>
 
   <a class="sticky-rsvp" id="stickyRsvp" href="#rsvp" hidden>Confirmar asistencia</a>
@@ -222,8 +250,8 @@
     <button class="btn btn-primario" id="demoClose" type="button">Cerrar</button>
   </dialog>
 
-  <script src="datos.js?v=barra-1"></script>
-  <script src="core.js?v=barra-1"></script>
+  <script src="  datos.js?v=mar-1"></script>
+    <script src="core.js?v=mar-1"></script>
   <script src="interaction.js"></script>
   <script src="world.js"></script>
 </body>
